@@ -44,9 +44,25 @@ ActiveRecord::Base.establish_connection(
    :database  => 'test.db'
 )
 
+# ActiveRecord::Migration.class_eval do
+  # create_table :articles do |t|
+  #       t.string :account
+  #       t.string :scoop_id
+  #  end
+# end
+
 ActiveRecord::Migration.class_eval do
-  create_table :articles do |t|
-        t.string :account
-        t.string :scoop_id
+  create_table :accounts do |t|
+        t.string :name
+        t.string :topic
+        t.string :section
+        t.string :all
    end
 end
+
+
+
+
+
+
+

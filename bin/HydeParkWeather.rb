@@ -21,15 +21,23 @@ ActiveRecord::Base.establish_connection(
 class Article < ActiveRecord::Base
 end
 
+class Account < ActiveRecord::Base
+end
+
+a = Account.last
+puts "YYYY" + a.all
+
 bitlyauth = UrlShortener::Authorize.new 'proales', 'R_b8f06dca741dbd98bc2855ea9c42fc7d'
 bitlyclient = UrlShortener::Client.new(bitlyauth)
 
 # set to fasle to send out tweets
 debug_mode = true
 
-# return the first user
-user = Article.last
-user.destroy
+# make sure at least one tweet happens in debug mode
+if (debug_mode)
+    user = Article.last
+    user.destroy
+end
 
 def get_json()   
  uri = URI("http://internal.du.nytimes.com/svc/news/v3/all/recent.json")
@@ -42,12 +50,14 @@ def get_json()
  data
 end
 
-def post_tweet(content)
+def post_tweet(account, content)
+    ymlConfig = YAML.load_file(account + '.yml')
+    puts ymlConfig['consumer_key']
     client = Twitter::REST::Client.new do |config|
-        config.consumer_key        = "FxDs46rXmCmVPzLzXHfzGW8nm"
-        config.consumer_secret     = "fIAFCvVDPf9U1mwWVmG2R6dXuSmPin4QwkWTvfhDByXngEUDMZ"
-        config.access_token        = "717162073-3pYfmuhsBaScQ6L79ILJm2yg8nnoTI5h4BzTuKVc"
-        config.access_token_secret = "b1cpMcZPyRkvV2AmhpPRZc0CbTQOsRni1jYMN5MFB1Oqq"
+        config.consumer_key        = ymlConfig['consumer_key']
+        config.consumer_secret     = ymlConfig['consumer_secret']
+        config.access_token        = ymlConfig['access_token']
+        config.access_token_secret = ymlConfig['access_token_secret']
     end
 
     if debug_mode 
@@ -57,7 +67,7 @@ def post_tweet(content)
     end
 end
 
-scheduler.every '3s', :first_in => 0 do
+scheduler.every '30s', :first_in => 0 do
     puts "New Run: "
     
     data = get_json()
@@ -74,7 +84,7 @@ scheduler.every '3s', :first_in => 0 do
 
             puts tweet_content
             #tweet tweet_content
-            post_tweet(tweet_content)
+            post_tweet("HydeParkWeather", tweet_content)
 
             p = Article.new
             p.account = "HydeParkWeather"

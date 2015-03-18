@@ -1,12 +1,12 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/206328/nyt/twitterbot/chatterbot/lib/chatterbot/version.rb": [
+      "/Users/206328/nyt/NYTBot/lib/chatterbot/version.rb": [
         1,
         1,
         null
       ],
-      "/Users/206328/nyt/twitterbot/chatterbot/lib/chatterbot.rb": [
+      "/Users/206328/nyt/NYTBot/lib/chatterbot.rb": [
         1,
         1,
         1,
@@ -89,7 +89,7 @@
         null,
         1
       ],
-      "/Users/206328/nyt/twitterbot/chatterbot/lib/chatterbot/config.rb": [
+      "/Users/206328/nyt/NYTBot/lib/chatterbot/config.rb": [
         1,
         null,
         null,
@@ -440,7 +440,7 @@
         null,
         null
       ],
-      "/Users/206328/nyt/twitterbot/chatterbot/lib/chatterbot/db.rb": [
+      "/Users/206328/nyt/NYTBot/lib/chatterbot/db.rb": [
         1,
         null,
         null,
@@ -521,7 +521,7 @@
         null,
         null
       ],
-      "/Users/206328/nyt/twitterbot/chatterbot/lib/chatterbot/logging.rb": [
+      "/Users/206328/nyt/NYTBot/lib/chatterbot/logging.rb": [
         1,
         null,
         1,
@@ -573,7 +573,7 @@
         null,
         null
       ],
-      "/Users/206328/nyt/twitterbot/chatterbot/lib/chatterbot/blacklist.rb": [
+      "/Users/206328/nyt/NYTBot/lib/chatterbot/blacklist.rb": [
         1,
         null,
         null,
@@ -636,7 +636,7 @@
         null,
         null
       ],
-      "/Users/206328/nyt/twitterbot/chatterbot/lib/chatterbot/whitelist.rb": [
+      "/Users/206328/nyt/NYTBot/lib/chatterbot/whitelist.rb": [
         1,
         null,
         null,
@@ -670,7 +670,7 @@
         null,
         null
       ],
-      "/Users/206328/nyt/twitterbot/chatterbot/lib/chatterbot/ui.rb": [
+      "/Users/206328/nyt/NYTBot/lib/chatterbot/ui.rb": [
         1,
         null,
         null,
@@ -779,7 +779,7 @@
         null,
         null
       ],
-      "/Users/206328/nyt/twitterbot/chatterbot/lib/chatterbot/client.rb": [
+      "/Users/206328/nyt/NYTBot/lib/chatterbot/client.rb": [
         1,
         null,
         1,
@@ -966,7 +966,7 @@
         null,
         null
       ],
-      "/Users/206328/nyt/twitterbot/chatterbot/lib/chatterbot/search.rb": [
+      "/Users/206328/nyt/NYTBot/lib/chatterbot/search.rb": [
         1,
         null,
         null,
@@ -1026,7 +1026,7 @@
         null,
         null
       ],
-      "/Users/206328/nyt/twitterbot/chatterbot/lib/chatterbot/tweet.rb": [
+      "/Users/206328/nyt/NYTBot/lib/chatterbot/tweet.rb": [
         1,
         null,
         null,
@@ -1060,7 +1060,7 @@
         null,
         null
       ],
-      "/Users/206328/nyt/twitterbot/chatterbot/lib/chatterbot/retweet.rb": [
+      "/Users/206328/nyt/NYTBot/lib/chatterbot/retweet.rb": [
         1,
         null,
         null,
@@ -1085,7 +1085,7 @@
         null,
         null
       ],
-      "/Users/206328/nyt/twitterbot/chatterbot/lib/chatterbot/favorite.rb": [
+      "/Users/206328/nyt/NYTBot/lib/chatterbot/favorite.rb": [
         1,
         null,
         null,
@@ -1110,7 +1110,7 @@
         null,
         null
       ],
-      "/Users/206328/nyt/twitterbot/chatterbot/lib/chatterbot/profile.rb": [
+      "/Users/206328/nyt/NYTBot/lib/chatterbot/profile.rb": [
         1,
         null,
         null,
@@ -1152,7 +1152,7 @@
         null,
         null
       ],
-      "/Users/206328/nyt/twitterbot/chatterbot/lib/chatterbot/reply.rb": [
+      "/Users/206328/nyt/NYTBot/lib/chatterbot/reply.rb": [
         1,
         null,
         null,
@@ -1189,7 +1189,7 @@
         null,
         null
       ],
-      "/Users/206328/nyt/twitterbot/chatterbot/lib/chatterbot/home_timeline.rb": [
+      "/Users/206328/nyt/NYTBot/lib/chatterbot/home_timeline.rb": [
         1,
         null,
         null,
@@ -1224,7 +1224,7 @@
         null,
         null
       ],
-      "/Users/206328/nyt/twitterbot/chatterbot/lib/chatterbot/streaming.rb": [
+      "/Users/206328/nyt/NYTBot/lib/chatterbot/streaming.rb": [
         1,
         null,
         null,
@@ -1293,7 +1293,7 @@
         null,
         null
       ],
-      "/Users/206328/nyt/twitterbot/chatterbot/lib/chatterbot/streaming_handler.rb": [
+      "/Users/206328/nyt/NYTBot/lib/chatterbot/streaming_handler.rb": [
         null,
         1,
         1,
@@ -1391,7 +1391,7 @@
         null,
         null
       ],
-      "/Users/206328/nyt/twitterbot/chatterbot/lib/chatterbot/followers.rb": [
+      "/Users/206328/nyt/NYTBot/lib/chatterbot/followers.rb": [
         1,
         1,
         null,
@@ -1415,7 +1415,7 @@
         null,
         null
       ],
-      "/Users/206328/nyt/twitterbot/chatterbot/lib/chatterbot/helpers.rb": [
+      "/Users/206328/nyt/NYTBot/lib/chatterbot/helpers.rb": [
         1,
         null,
         null,
@@ -1480,7 +1480,7 @@
         null,
         null
       ],
-      "/Users/206328/nyt/twitterbot/chatterbot/lib/chatterbot/utils.rb": [
+      "/Users/206328/nyt/NYTBot/lib/chatterbot/utils.rb": [
         1,
         1,
         1,
@@ -1493,7 +1493,7 @@
         null,
         null
       ],
-      "/Users/206328/nyt/twitterbot/chatterbot/lib/chatterbot/bot.rb": [
+      "/Users/206328/nyt/NYTBot/lib/chatterbot/bot.rb": [
         1,
         null,
         null,
@@ -1543,7 +1543,7 @@
         null,
         null
       ],
-      "/Users/206328/nyt/twitterbot/chatterbot/spec/bot_spec.rb": [
+      "/Users/206328/nyt/NYTBot/spec/bot_spec.rb": [
         1,
         null,
         1,
@@ -1562,7 +1562,7 @@
         null,
         null
       ],
-      "/Users/206328/nyt/twitterbot/chatterbot/spec/client_spec.rb": [
+      "/Users/206328/nyt/NYTBot/spec/client_spec.rb": [
         1,
         null,
         1,
@@ -1690,7 +1690,7 @@
         null,
         null
       ],
-      "/Users/206328/nyt/twitterbot/chatterbot/spec/config_spec.rb": [
+      "/Users/206328/nyt/NYTBot/spec/config_spec.rb": [
         1,
         1,
         null,
@@ -2084,7 +2084,7 @@
         null,
         null
       ],
-      "/Users/206328/nyt/twitterbot/chatterbot/spec/db_spec.rb": [
+      "/Users/206328/nyt/NYTBot/spec/db_spec.rb": [
         1,
         null,
         null,
@@ -2139,7 +2139,7 @@
         null,
         null
       ],
-      "/Users/206328/nyt/twitterbot/chatterbot/spec/dsl_spec.rb": [
+      "/Users/206328/nyt/NYTBot/spec/dsl_spec.rb": [
         1,
         null,
         1,
@@ -2373,7 +2373,7 @@
         null,
         null
       ],
-      "/Users/206328/nyt/twitterbot/chatterbot/spec/favorite_spec.rb": [
+      "/Users/206328/nyt/NYTBot/spec/favorite_spec.rb": [
         1,
         null,
         1,
@@ -2409,7 +2409,7 @@
         null,
         null
       ],
-      "/Users/206328/nyt/twitterbot/chatterbot/spec/followers_spec.rb": [
+      "/Users/206328/nyt/NYTBot/spec/followers_spec.rb": [
         1,
         null,
         1,
@@ -2451,7 +2451,7 @@
         null,
         null
       ],
-      "/Users/206328/nyt/twitterbot/chatterbot/spec/helpers_spec.rb": [
+      "/Users/206328/nyt/NYTBot/spec/helpers_spec.rb": [
         1,
         null,
         1,
@@ -2546,7 +2546,7 @@
         null,
         null
       ],
-      "/Users/206328/nyt/twitterbot/chatterbot/spec/home_timeline_spec.rb": [
+      "/Users/206328/nyt/NYTBot/spec/home_timeline_spec.rb": [
         1,
         null,
         1,
@@ -2601,7 +2601,7 @@
         null,
         null
       ],
-      "/Users/206328/nyt/twitterbot/chatterbot/spec/logging_spec.rb": [
+      "/Users/206328/nyt/NYTBot/spec/logging_spec.rb": [
         1,
         1,
         null,
@@ -2669,7 +2669,7 @@
         null,
         null
       ],
-      "/Users/206328/nyt/twitterbot/chatterbot/spec/profile_spec.rb": [
+      "/Users/206328/nyt/NYTBot/spec/profile_spec.rb": [
         1,
         null,
         1,
@@ -2736,7 +2736,7 @@
         null,
         null
       ],
-      "/Users/206328/nyt/twitterbot/chatterbot/spec/reply_spec.rb": [
+      "/Users/206328/nyt/NYTBot/spec/reply_spec.rb": [
         1,
         null,
         1,
@@ -2827,7 +2827,7 @@
         null,
         null
       ],
-      "/Users/206328/nyt/twitterbot/chatterbot/spec/retweet_spec.rb": [
+      "/Users/206328/nyt/NYTBot/spec/retweet_spec.rb": [
         1,
         null,
         1,
@@ -2864,7 +2864,7 @@
         null,
         null
       ],
-      "/Users/206328/nyt/twitterbot/chatterbot/spec/search_spec.rb": [
+      "/Users/206328/nyt/NYTBot/spec/search_spec.rb": [
         1,
         null,
         1,
@@ -2961,7 +2961,7 @@
         null,
         null
       ],
-      "/Users/206328/nyt/twitterbot/chatterbot/spec/skeleton_spec.rb": [
+      "/Users/206328/nyt/NYTBot/spec/skeleton_spec.rb": [
         1,
         null,
         1,
@@ -2992,7 +2992,7 @@
         null,
         null
       ],
-      "/Users/206328/nyt/twitterbot/chatterbot/lib/chatterbot/skeleton.rb": [
+      "/Users/206328/nyt/NYTBot/lib/chatterbot/skeleton.rb": [
         1,
         null,
         null,
@@ -3052,7 +3052,7 @@
         null,
         null
       ],
-      "/Users/206328/nyt/twitterbot/chatterbot/spec/streaming_handler_spec.rb": [
+      "/Users/206328/nyt/NYTBot/spec/streaming_handler_spec.rb": [
         1,
         null,
         1,
@@ -3132,7 +3132,7 @@
         null,
         null
       ],
-      "/Users/206328/nyt/twitterbot/chatterbot/spec/streaming_spec.rb": [
+      "/Users/206328/nyt/NYTBot/spec/streaming_spec.rb": [
         1,
         null,
         1,
@@ -3306,7 +3306,7 @@
         null,
         null
       ],
-      "/Users/206328/nyt/twitterbot/chatterbot/spec/tweet_spec.rb": [
+      "/Users/206328/nyt/NYTBot/spec/tweet_spec.rb": [
         1,
         null,
         1,
@@ -3384,7 +3384,7 @@
         null,
         null
       ],
-      "/Users/206328/nyt/twitterbot/chatterbot/spec/utils_spec.rb": [
+      "/Users/206328/nyt/NYTBot/spec/utils_spec.rb": [
         1,
         null,
         1,
@@ -3415,7 +3415,7 @@
         null,
         null
       ],
-      "/Users/206328/nyt/twitterbot/chatterbot/spec/whitelist_spec.rb": [
+      "/Users/206328/nyt/NYTBot/spec/whitelist_spec.rb": [
         1,
         null,
         1,
@@ -3448,7 +3448,7 @@
         null,
         null
       ],
-      "/Users/206328/nyt/twitterbot/chatterbot/lib/chatterbot/dsl.rb": [
+      "/Users/206328/nyt/NYTBot/lib/chatterbot/dsl.rb": [
         1,
         1,
         null,
@@ -3862,6 +3862,6 @@
         1
       ]
     },
-    "timestamp": 1426625331
+    "timestamp": 1426702143
   }
 }
