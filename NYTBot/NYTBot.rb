@@ -24,23 +24,30 @@ class Account < ActiveRecord::Base
 end
 
 # set to fasle to send out tweets
-$debug_mode = false
+$debug_mode = true
 $destroy_last = false
 
 # make sure at least one tweet happens in debug mode
 if ($debug_mode || $destroy_last)
-    user = Article.last
-    user.destroy
+    # user = Article.last
+    # user.destroy
 end
 
-def get_json()   
+def get_json()
     uri = URI("http://internal.du.nytimes.com/svc/news/v3/all/recent.json")
+    # uri = URI("http://internal.du.nytimes.com/svc/news/v3/all/last24hours")
     data = nil
-        Net::HTTP.start(uri.host, uri.port) do |http|
+
+    Net::HTTP.start(uri.host, uri.port) do |http|
+        begin 
             request = Net::HTTP::Get.new(uri.request_uri)
             response = http.request(request)
             data = JSON.parse(response.body)
+        rescue
+            puts "ERROR: Failed Get JSON"
         end
+    end 
+
     data
 end
 
@@ -54,20 +61,33 @@ def post_tweet(account, content, image)
     end
 
     if $debug_mode 
-        puts "Debug mode: " + content + image.present?
+        puts "Debug mode: " + content
     else
         if image.present? 
-            client.update_with_media(content, File.new(image))
-        else     
-            client.update(content)
+            begin
+                client.update_with_media(content, File.new(image))
+            rescue
+                puts "ERROR: Client update with media"
+            end
+        else
+            begin
+                client.update(content)
+            rescue
+                puts "ERROR: Client update with media"
+            end
         end
     end
 end
 
 def get_short_url(long_url) 
-    bitlyauth = UrlShortener::Authorize.new 'proales', 'R_b8f06dca741dbd98bc2855ea9c42fc7d'
-    bitlyclient = UrlShortener::Client.new(bitlyauth)
-    shorten = bitlyclient.shorten(long_url).urls
+    shorten = nil
+    begin
+        bitlyauth = UrlShortener::Authorize.new 'proales', 'R_b8f06dca741dbd98bc2855ea9c42fc7d'
+        bitlyclient = UrlShortener::Client.new(bitlyauth)
+        shorten = bitlyclient.shorten(long_url).urls
+    rescue
+        puts "ERROR: Get short url"
+    end
     shorten
 end    
 
@@ -88,18 +108,88 @@ def get_image(multimedia)
         if thumb.present?
             url = thumb["url"]
             uri = URI(url)
-            Net::HTTP.start(uri.host, uri.port) do |http|
-                response = http.get(uri.request_uri)
-                open("temp.jpg" ,"wb") { |file|
-                    file.write(response.body)
-                }
-                data = "temp.jpg"
-            end
+            begin
+                Net::HTTP.start(uri.host, uri.port) do |http|
+                    response = http.get(uri.request_uri)
+                    open("temp.jpg" ,"wb") { |file|
+                        file.write(response.body)
+                    }
+                    data = "temp.jpg"
+                end
+            rescue
+                puts "ERROR: Get multimedia"
+            end    
         end    
     end    
 
     data
 end    
+
+def match_article_to_accounts(result) 
+    accounts_to_post_to = []
+
+    matchingAll = Account.where(all: "1")
+    matchingAll.each do |account|
+        puts "all tweets match for " + account.name
+        accounts_to_post_to.push(account.name)
+    end    
+
+    matchingSections = Account.where(section: result["section"])
+    matchingSections.each do |account|
+        puts "section match for " + account.name
+        accounts_to_post_to.push(account.name)
+    end    
+
+    matchingSubSections = Account.where(section: result["section"])
+    matchingSubSections.each do |account|
+        puts "subsection match for " + account.name
+        accounts_to_post_to.push(account.name)
+    end    
+
+    if result["des_facet"].present?
+        result["des_facet"].each do |topic|
+            matching = Account.where(desfacet: topic)
+            matching.each do |account|
+                puts "desfacet match for " + account.name
+                accounts_to_post_to.push(account.name)
+            end    
+        end    
+    end
+
+    if result["geo_facet"].present?
+        result["geo_facet"].each do |topic|
+            matching = Account.where(geofacet: topic)
+            matching.each do |account|
+                puts "geofacet match for " + account.name
+                accounts_to_post_to.push(account.name)
+            end    
+        end    
+    end
+
+    if result["per_facet"].present?
+        result["per_facet"].each do |topic|
+            matching = Account.where(perfacet: topic)
+            matching.each do |account|
+                puts "perfacet match for " + account.name
+                accounts_to_post_to.push(account.name)
+            end    
+        end    
+    end
+
+    if result["org_facet"].present?
+        result["org_facet"].each do |topic|
+            matching = Account.where(orgfacet: topic)
+            matching.each do |account|
+                puts "orgfacet match for " + account.name
+                accounts_to_post_to.push(account.name)
+            end    
+        end    
+    end
+
+    accounts = accounts_to_post_to.uniq
+
+    accounts 
+end
 
 def update_run()
     puts "New Run: "
@@ -117,28 +207,12 @@ def update_run()
             tweet_content = title + " " + shortened_url
             tweet_image = get_image(result["multimedia"])
             
+            accounts_to_post_to = match_article_to_accounts(result)
+
             puts tweet_content
-
-            matchingAll = Account.where(all: "1")
-            matchingAll.each do |account|
-                puts "all tweets match for " + account.name
-                post_tweet(account.name, tweet_content, tweet_image)
-            end    
-
-            matchingSections = Account.where(section: result["section"])
-            matchingSections.each do |account|
-                puts "section match for " + account.name
-                post_tweet(account.name, tweet_content, tweet_image)
-            end    
-
-            if result["des_facet"].present?
-                result["des_facet"].each do |topic|
-                    matchingTopic = Account.where(topic: topic)
-                    matchingTopic.each do |account|
-                        puts "topic match for " + account.name
-                        post_tweet(account.name, tweet_content, tweet_image)
-                    end    
-                end    
+            
+            accounts_to_post_to.each do |account|
+                post_tweet(account, tweet_content, tweet_image)
             end
                 
             p = Article.new

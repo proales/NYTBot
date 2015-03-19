@@ -44,22 +44,37 @@ ActiveRecord::Base.establish_connection(
    :database  => 'test.db'
 )
 
-# ActiveRecord::Migration.class_eval do
-  # create_table :articles do |t|
-  #       t.string :account
-  #       t.string :scoop_id
-  #  end
-# end
-
 ActiveRecord::Migration.class_eval do
+  create_table :articles do |t|
+        t.string :scoop_id
+  end
+  
   create_table :accounts do |t|
         t.string :name
         t.string :topic
         t.string :section
+        t.string :subsection
         t.string :all
+        t.string :geofacet
+        t.string :perfacet
+        t.string :orgfacet
+        t.string :desfacet
    end
 end
 
+# ActiveRecord::Migration.class_eval do
+#   create_table :accounts do |t|
+#         t.string :name
+#         t.string :topic
+#         t.string :section
+#         t.string :subsection
+#         t.string :all
+#         t.string :geofacet
+#         t.string :perfacet
+#         t.string :orgfacet
+#         t.string :desfacet
+#    end
+# end
 
 
 
